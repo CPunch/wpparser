@@ -331,7 +331,7 @@ def _parse_postmeta(element):
         key = field.find("./{%s}meta_key" % WP_NAMESPACE).text
         value = field.find("./{%s}meta_value" % WP_NAMESPACE).text
 
-        if key == "_wp_attachment_metadata":
+        if key == "_wp_attachment_metadata" and value:
             stream = StringIO(value.encode())
             try:
                 data = phpserialize.load(stream)
